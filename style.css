@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+nav {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(to right, rgb(255, 123, 0), orange);
+  font-weight: bold;
+  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 12;
+}
+
+.logoBox {
+  height: 100%;
+  width: 9rem;
+  object-fit: contain;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.logoBox img {
+  width: 150%;
+  height: 150%;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  display: flex;
+  height: 100%;
+  width: 20%;
+  justify-content: space-between;
+}
+nav ul li {
+  padding-right: 20px;
+  border-right: 2px solid white;
+  cursor: pointer;
+  transition: 0.4s;
+}
+nav ul li:hover {
+  color: black;
+}
+
+/* home///////// */
+
+.home {
+  margin-top: 60px;
+  display: flex;
+  width: 100%;
+  height: 76vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.home video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, transparent, black);
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+}
+
+.home h1 {
+  position: relative;
+  z-index: 10;
+  font-weight: bold;
+  font-size: 3.2rem;
+  color: white;
+  width: 600px;
+  text-align: center;
+}
+/* ABOUT ONEY /////////////// */
+.aboutHoney {
+  margin-top: 2px;
+  padding: 10px;
+  height: 90vh;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  width: 80%;
+}
+
+.aboutHoney img {
+  width: 500px;
+  height: 500px;
+}
+.textDiv {
+  width: 50rem;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.textDiv h1 {
+  text-align: end;
+  color: rgb(86, 72, 51);
+  font-size: x-large;
+}
+.textDiv .biloSta {
+  font-size: 5rem;
+  color: orange;
+  font-weight: 900;
+}
+.textDiv .description {
+  font-weight: 100;
+}
+
+.textDiv img {
+  width: 150px;
+  height: 150px;
+  align-content: center;
+}
+
+.aboutHoney .teglaMeda {
+  transform: rotateY(180deg);
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  display: none;
+  top: 82px;
+}
+
+.burger span {
+  background: #fff;
+  border-radius: 10px;
+  height: 7px;
+  margin: 7px 0;
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.burger span:nth-of-type(1) {
+  width: 50%;
+}
+
+.burger span:nth-of-type(2) {
+  width: 100%;
+}
+
+.burger span:nth-of-type(3) {
+  width: 75%;
+}
+
+.burger input[type="checkbox"] {
+  display: none;
+}
+
+.burger input[type="checkbox"]:checked ~ span:nth-of-type(1) {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(8px, 0px);
+}
+
+.burger input[type="checkbox"]:checked ~ span:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg);
+}
+
+.burger input[type="checkbox"]:checked ~ span:nth-of-type(3) {
+  transform-origin: bottom;
+  width: 50%;
+  transform: translate(30px, -11px) rotatez(45deg);
+}
+
+@media screen and (max-width: 1300px) {
+  nav {
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+  }
+  nav ul {
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+  }
+  nav ul li {
+    border: none;
+    font-size: larger;
+  }
+
+  .aboutHoney {
+    display: block;
+  }
+  .aboutHoney .textDiv {
+    width: 100%;
+    align-items: center;
+  }
+  .textDiv h1 {
+    text-align: center;
+  }
+  .aboutHoney .teglaMeda {
+    width: 100%;
+  }
+  .burger {
+    display: flex;
+  }
+}
+
+.displayFlex {
+  display: flex;
+}
+.displayNone {
+  display: none;
+}
