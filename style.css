@@ -10,6 +10,7 @@ body {
   justify-content: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 nav {
   width: 100%;
@@ -48,6 +49,7 @@ nav ul {
   height: 100%;
   width: 20%;
   justify-content: space-between;
+  transition: 2s;
 }
 nav ul li {
   padding-right: 20px;
@@ -65,7 +67,7 @@ nav ul li:hover {
   margin-top: 60px;
   display: flex;
   width: 100%;
-  height: 76vh;
+  height: 72vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,7 +95,7 @@ nav ul li:hover {
   position: relative;
   z-index: 10;
   font-weight: bold;
-  font-size: 3.2rem;
+  font-size: 4rem;
   color: white;
   width: 600px;
   text-align: center;
@@ -144,56 +146,93 @@ nav ul li:hover {
 }
 
 .burger {
-  display: flex;
-  flex-direction: column;
-  width: 70px;
-  cursor: pointer;
+  width: 30px;
+  height: 30px;
   position: absolute;
-  right: 5px;
-  display: none;
-  top: 82px;
-}
+  transition: 0.1s;
+  margin: 10px 10px;
+  cursor: pointer;
 
+  right: 10px;
+  top: 74px;
+  display: none;
+}
 .burger span {
-  background: #fff;
-  border-radius: 10px;
-  height: 7px;
-  margin: 7px 0;
-  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
 }
-
-.burger span:nth-of-type(1) {
-  width: 50%;
+.burger:hover span {
+  transform: scale(1.2);
+  transition: 350ms cubic-bezier(0.8, 0.5, 0.2, 1.4);
 }
-
-.burger span:nth-of-type(2) {
-  width: 100%;
+.burger span:nth-child(1) {
+  left: 0;
+  top: 0;
 }
-
-.burger span:nth-of-type(3) {
-  width: 75%;
+.burger span:nth-child(2) {
+  left: 12px;
+  top: 0;
 }
-
-.burger input[type="checkbox"] {
-  display: none;
+.burger span:nth-child(3) {
+  right: 0;
+  top: 0;
 }
-
-.burger input[type="checkbox"]:checked ~ span:nth-of-type(1) {
-  transform-origin: bottom;
-  transform: rotatez(45deg) translate(8px, 0px);
+.burger span:nth-child(4) {
+  left: 0;
+  top: 12px;
 }
-
-.burger input[type="checkbox"]:checked ~ span:nth-of-type(2) {
-  transform-origin: top;
-  transform: rotatez(-45deg);
+.burger span:nth-child(5) {
+  position: absolute;
+  left: 12px;
+  top: 12px;
 }
-
-.burger input[type="checkbox"]:checked ~ span:nth-of-type(3) {
-  transform-origin: bottom;
-  width: 50%;
-  transform: translate(30px, -11px) rotatez(45deg);
+.burger span:nth-child(6) {
+  right: 0px;
+  top: 12px;
 }
-
+.burger span:nth-child(7) {
+  left: 0px;
+  bottom: 0px;
+}
+.burger span:nth-child(8) {
+  position: absolute;
+  left: 12px;
+  bottom: 0px;
+}
+.burger span:nth-child(9) {
+  right: 0px;
+  bottom: 0px;
+}
+.burger.open {
+  transform: rotate(180deg);
+  cursor: pointer;
+  transition: 0.2s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+}
+.burger.open span {
+  border-radius: 50%;
+  transition-delay: 200ms;
+  transition: 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+}
+.burger.open span:nth-child(2) {
+  left: 6px;
+  top: 6px;
+}
+.burger.open span:nth-child(4) {
+  left: 6px;
+  top: 18px;
+}
+.burger.open span:nth-child(6) {
+  right: 6px;
+  top: 6px;
+}
+.burger.open span:nth-child(8) {
+  left: 18px;
+  bottom: 6px;
+}
 @media screen and (max-width: 1300px) {
   nav {
     flex-direction: column;
@@ -226,7 +265,7 @@ nav ul li:hover {
     width: 100%;
   }
   .burger {
-    display: flex;
+    display: inline-block;
   }
 }
 
@@ -235,4 +274,70 @@ nav ul li:hover {
 }
 .displayNone {
   display: none;
+}
+
+/* PROUD /////////// */
+
+.proud {
+  width: 100%;
+  background: url("album/beekeeping-gd0079e0a5_1920.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 75vh;
+  position: relative;
+  background-position-y: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.proud::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgb(255, 111, 0), rgb(160, 39, 39));
+  opacity: 0.4;
+}
+.proud h1 {
+  position: relative;
+  z-index: 10;
+  color: rgb(226, 137, 19);
+  text-align: end;
+  font-size: 4.5rem;
+  width: 100%;
+
+  font-weight: 900;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-shadow: 2px 2px 10px rgb(55, 33, 18);
+}
+.proud div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: flex-end;
+}
+.proud button {
+  width: 14rem;
+  height: 2.2rem;
+  background-color: rgb(55, 33, 18);
+  border-radius: 10px;
+  border: none;
+  color: rgb(232, 147, 35);
+  font-weight: bold;
+  font-size: 1rem;
+  position: relative;
+  z-index: 11;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.proud button:hover {
+  background-color: rgb(87, 53, 30);
+}
+.proud i {
+  font-size: 2rem;
+  color: aliceblue;
 }
